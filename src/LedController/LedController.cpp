@@ -5,11 +5,14 @@ LedController::LedController(uint8_t pin)
 
 void LedController::Begin() {
     pinMode(Pin, OUTPUT);
-    Set(false);
+    Set(false); // Start with LED OFF
 }
 
 void LedController::Set(bool on) {
     State = on;
+
+    // Digital output controls the LED:
+    // HIGH means 5V on the pin (LED on in our wiring), LOW means 0V (LED off).
     digitalWrite(Pin, on ? HIGH : LOW);
 }
 
